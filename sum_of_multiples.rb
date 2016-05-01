@@ -1,12 +1,12 @@
 class SumOfMultiples
-  attr_accessor :nums
+  attr_reader :nums
 
   def self.to(n)
-    (1...n).select { |i| [3,5].any? { |k| i % k == 0 } }.reduce(0,:+)
+    new.to(n)
   end
 
   def initialize(*numbers)
-    @nums = numbers ? numbers : [3,5] #not sure how to default assign splat parameter
+    @nums = numbers.empty? ? [3,5] : numbers #not sure how to default assign splat parameter
   end
 
   def to(n)
